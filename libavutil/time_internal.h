@@ -33,15 +33,15 @@ static inline struct tm *gmtime_r(const time_t* clock, struct tm *result)
 }
 #endif
 
-#if !HAVE_LOCALTIME_R && !defined(localtime_r)
-static inline struct tm *localtime_r(const time_t* clock, struct tm *result)
-{
-    struct tm *ptr = localtime(clock);
-    if (!ptr)
-        return NULL;
-    *result = *ptr;
-    return result;
-}
-#endif
+//#if !HAVE_LOCALTIME_R && !defined(localtime_r)
+//static inline struct tm *localtime_r(const time_t* clock, struct tm *result)
+//{
+//    struct tm *ptr = localtime(clock);
+//    if (!ptr)
+//        return NULL;
+//    *result = *ptr;
+//    return result;
+//}
+//#endif
 
 #endif /* AVUTIL_TIME_INTERNAL_H */
