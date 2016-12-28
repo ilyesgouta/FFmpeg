@@ -53,6 +53,13 @@
 ELF     .object_arch    armv4
 #endif
 
+.eabi_attribute Tag_ARM_ISA_use, 0
+.eabi_attribute Tag_THUMB_ISA_use, 2
+.eabi_attribute Tag_CPU_arch, 13
+.eabi_attribute Tag_CPU_arch_profile, 77
+.arch           armv7e-m
+.fpu            fpv5-sp-d16
+
 #if   HAVE_NEON
         .fpu            neon
 ELF     .eabi_attribute 10, 0           @ suppress Tag_FP_arch
