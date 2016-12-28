@@ -24,7 +24,7 @@
 
 #include "config.h"
 
-#if HAVE_PTHREADS || HAVE_W32THREADS || HAVE_OS2THREADS
+#if HAVE_PTHREADS || HAVE_W32THREADS || HAVE_OS2THREADS || HAVE_FREERTOSTHREADS
 
 #define USE_ATOMICS 0
 
@@ -128,8 +128,10 @@ static inline int strict_pthread_once(pthread_once_t *once_control, void (*init_
 
 #elif HAVE_OS2THREADS
 #include "compat/os2threads.h"
-#else
+#elif HAVE_W32THREADS
 #include "compat/w32pthreads.h"
+#else
+#include "compat/freertosthreads.h"
 #endif
 
 #define AVMutex pthread_mutex_t

@@ -136,6 +136,7 @@ Component options:
   --disable-pthreads       disable pthreads [autodetect]
   --disable-w32threads     disable Win32 threads [autodetect]
   --disable-os2threads     disable OS/2 threads [autodetect]
+  --disable-freertosthreads disable FreeRTOS threads
   --disable-network        disable network support [no]
   --disable-dct            disable DCT code
   --disable-dwt            disable DWT code
@@ -1694,6 +1695,7 @@ THREADS_LIST="
     pthreads
     os2threads
     w32threads
+    freertosthreads
 "
 
 ATOMICS_LIST="
@@ -4912,6 +4914,9 @@ case $target_os in
         add_cppflags -D_BSD_SOURCE
         ;;
     gnu)
+        ;;
+    freertos)
+        enable freertosthreads
         ;;
     qnx)
         add_cppflags -D_QNX_SOURCE
